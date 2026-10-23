@@ -1,0 +1,1438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.aimcontroller">
+    <children>
+      <BorderPane prefHeight="918.4" prefWidth="1228.0" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TabPane fx:id="mainTabPane" side="LEFT" styleClass="sidebar-tab-pane" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab disable="true" style="-fx-opacity: 0;"><graphic><VBox alignment="CENTER" prefHeight="230.0" prefWidth="170.0" spacing="5.0" style="-fx-padding: 15 5 20 5;" /></graphic></Tab>
+                  <Tab disable="true" style="-fx-opacity: 0;"><graphic><VBox alignment="CENTER" prefHeight="230.0" prefWidth="170.0" spacing="5.0" style="-fx-padding: 15 5 20 5;" /></graphic></Tab>
+                  <Tab disable="true" style="-fx-opacity: 0;"><graphic><VBox alignment="CENTER" prefHeight="230.0" prefWidth="170.0" spacing="5.0" style="-fx-padding: 15 5 20 5;" /></graphic></Tab>
+                  <Tab disable="true" style="-fx-opacity: 0;"><graphic><VBox alignment="CENTER" prefHeight="230.0" prefWidth="170.0" spacing="5.0" style="-fx-padding: 15 5 20 5;" /></graphic></Tab>
+                  <Tab disable="true" style="-fx-opacity: 0;"><graphic><VBox alignment="CENTER" prefHeight="230.0" prefWidth="170.0" spacing="5.0" style="-fx-padding: 15 5 20 5;" /></graphic></Tab>
+                  
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="■   Dashboard" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Welcome back, Admin 👋 " />
+                                          <Label styleClass="page-subtitle" text="Local Dashboard - AIM Fitness Park Management System" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="dashboardDate" styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+                              
+                              <GridPane hgap="20.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints percentWidth="25.0" />
+                                    <ColumnConstraints percentWidth="25.0" />
+                                    <ColumnConstraints percentWidth="25.0" />
+                                    <ColumnConstraints percentWidth="25.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                 </rowConstraints>
+                                 <children>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="0">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Total Members" />
+                                          <Label fx:id="dashTotalMembers" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #6C757D; -fx-font-size: 12px;" text="All registered profiles" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="1">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Active Members" />
+                                          <Label fx:id="dashActiveMembers" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #28A745; -fx-font-size: 12px;" text="Valid membership status" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="2">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Expiring Soon" />
+                                          <Label fx:id="dashExpiringSoon" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #D9822B; -fx-font-size: 12px;" text="Expiring in &lt; 7 Days" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="3">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Today's Attendance" />
+                                          <Label fx:id="dashTodaysAttendance" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #007BFF; -fx-font-size: 12px;" text="Checked-in today" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+                              
+                              <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox spacing="15.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT">
+                                                   <children>
+                                                      <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Upcoming Expiries (Next 6 Months)" />
+                                                      <Region HBox.hgrow="ALWAYS" />
+                                                   </children>
+                                                </HBox>
+                                                <LineChart fx:id="expiryChart">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                  </yAxis>
+                                                </LineChart>
+                                             </children>
+                                          </VBox>
+                                          
+                                          <HBox spacing="20.0">
+                                             <children>
+                                                <VBox spacing="12.0" styleClass="card" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold;" text="Recently Added Members" />
+                                                      <HBox alignment="CENTER_LEFT">
+                                                         <children>
+                                                            <Label fx:id="recentName1" style="-fx-font-weight: bold;" text="Vikram Kumar" />
+                                                            <Region HBox.hgrow="ALWAYS" />
+                                                            <Label fx:id="recentStatus1" styleClass="badge-active" text="Active" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT">
+                                                         <children>
+                                                            <Label fx:id="recentName2" style="-fx-font-weight: bold;" text="Sneha Desai" />
+                                                            <Region HBox.hgrow="ALWAYS" />
+                                                            <Label fx:id="recentStatus2" styleClass="badge-active" text="Active" />
+                                                         </children>
+                                                      </HBox>
+                                                      <Button maxWidth="Infinity" onAction="#navigateToMembersTab" styleClass="btn-action-outline" text="View All Members" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox spacing="12.0" styleClass="card" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold;" text="Action Needed" />
+                                                      <HBox alignment="CENTER_LEFT">
+                                                         <children>
+                                                            <Label fx:id="actionName1" style="-fx-font-weight: bold;" text="Ramesh Kumar" />
+                                                            <Region HBox.hgrow="ALWAYS" />
+                                                            <Label fx:id="actionStatus1" style="-fx-text-fill: #D9822B; -fx-font-weight: bold;" text="2 Days left" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT">
+                                                         <children>
+                                                            <Label fx:id="actionName2" style="-fx-font-weight: bold;" text="Anil Sharma" />
+                                                            <Region HBox.hgrow="ALWAYS" />
+                                                            <Label fx:id="actionStatus2" styleClass="badge-expired" text="Expired" />
+                                                         </children>
+                                                      </HBox>
+                                                      <Button maxWidth="Infinity" onAction="#navigateToMembershipTab" styleClass="btn-action-outline" text="Process Renewals" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox prefWidth="320.0" spacing="20.0">
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="15.0" styleClass="card">
+                                             <children>
+                                                <Label maxWidth="Infinity" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Membership Status" />
+                                                <VBox alignment="CENTER" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: #E6F8ED; -fx-background-radius: 100px; -fx-border-color: #1A9347; -fx-border-width: 12px; -fx-border-radius: 100px;">
+                                                   <children>
+                                                      <Label fx:id="statusTotal" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="0" />
+                                                      <Label style="-fx-font-size: 11px; -fx-text-fill: #6C757D;" text="Total" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox maxWidth="Infinity" spacing="8.0">
+                                                   <children>
+                                                      <Label fx:id="statusActiveLabel" style="-fx-font-weight: 600;" text="● Active: 0 (0%)" />
+                                                      <Label fx:id="statusExpiringLabel" style="-fx-font-weight: 600; -fx-text-fill: #D9822B;" text="● Expiring: 0 (0%)" />
+                                                      <Label fx:id="statusExpiredLabel" style="-fx-font-weight: 600; -fx-text-fill: #D13438;" text="● Expired: 0 (0%)" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="10.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Quick Actions" />
+                                                <Button maxWidth="Infinity" onAction="#openAddMemberPopup" style="-fx-alignment: BASELINE_LEFT; -fx-padding: 12px;" styleClass="btn-secondary" text="+   Add Member                          &gt;" />
+                                                <Button maxWidth="Infinity" onAction="#openAttendancePopup" style="-fx-alignment: BASELINE_LEFT; -fx-padding: 12px;" styleClass="btn-secondary" text="✔   Mark Attendance                  &gt;" />
+                                                <Button maxWidth="Infinity" onAction="#openRenewPopup" style="-fx-alignment: BASELINE_LEFT; -fx-padding: 12px;" styleClass="btn-secondary" text="↻   Renew Membership               &gt;" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="👤  Members" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="20.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Members Management" />
+                                          <Label styleClass="page-subtitle" text="Local Database: Add, edit, and track member subscriptions" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+                              
+                              <VBox spacing="15.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                       <children>
+                                          <TextField fx:id="memberSearchField" prefWidth="320.0" promptText="🔍 Search by Name, Phone, or Member ID..." styleClass="search-field" />
+                                          <ComboBox fx:id="memberStatusFilterCombo" prefHeight="46.0" prefWidth="150.0" promptText="Status: All" styleClass="btn-secondary" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button onAction="#handleExportCSV" prefHeight="46.0" styleClass="btn-secondary" text="📤 Export CSV" />
+                                          <Button onAction="#openAddMemberPopup" prefHeight="46.0" styleClass="btn-primary" text="+ Add Member" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <TableView fx:id="memberTable" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="colMemberId" prefWidth="180.0" text="MEMBER ID" />
+                                          <TableColumn fx:id="colFullName" prefWidth="220.0" text="FULL NAME" />
+                                          <TableColumn fx:id="colStatus" prefWidth="130.0" text="STATUS" />
+                                          <TableColumn fx:id="colPhone" prefWidth="130.0" text="PHONE" />
+                                          <TableColumn fx:id="colActions" minWidth="180.0" prefWidth="180.0" text="ACTIONS" />
+                                       </columns>
+                                    </TableView>
+                                    
+                                    <HBox alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0; -fx-border-color: #EFF2F5; -fx-border-width: 1 0 0 0;">
+                                       <children>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+      
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="✔   Attendance" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Attendance Tracking" />
+                                          <Label styleClass="page-subtitle" text="Log daily check-ins, check-outs, and monitor member visit history" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="10.0" styleClass="card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold;" text="Quick Manual Entry" />
+                                          <HBox spacing="10.0">
+                                             <children>
+<TextField fx:id="attendanceTabIdField" prefWidth="250.0" promptText="Scan barcode or type Member ID..." styleClass="search-field" HBox.hgrow="ALWAYS" />                                                <Button onAction="#handleCheckIn" styleClass="btn-primary" text="Check-In" />
+                                                <Button onAction="#handleCheckOut" styleClass="btn-secondary" text="Check-Out" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefWidth="200.0" styleClass="stat-card">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Total Check-ins Today" />
+                                          <Label fx:id="attTotalToday" styleClass="stat-number" text="412" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefWidth="200.0" styleClass="stat-card">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Average Duration" />
+                                          <Label fx:id="attAvgDuration" styleClass="stat-number" text="1h 15m" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              
+                              <VBox spacing="15.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                       <children>
+                                          <TextField fx:id="attendanceSearchField" prefWidth="250.0" promptText="🔍 Search attendance history..." styleClass="search-field" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="attendanceTable" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="colAttMemberId" prefWidth="200.0" text="MEMBER INFO" />
+                                          <TableColumn fx:id="colAttName" prefWidth="200.0" text="MEMBER NAME" />
+                                          <TableColumn fx:id="colAttCheckIn" prefWidth="150.0" text="CHECK-IN" />
+                                          <TableColumn fx:id="colAttCheckOut" prefWidth="150.0" text="CHECK-OUT" />
+                                          <TableColumn fx:id="colAttDuration" prefWidth="140.0" text="DURATION" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="👥  Membership" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Membership Tracking" />
+                                          <Label styleClass="page-subtitle" text="Manage offline subscription plans, renew members, and track expiration dates" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox alignment="CENTER" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Active Plans" />
+                                          <Label fx:id="memActivePlans" style="-fx-text-fill: #28A745;" styleClass="stat-number" text="0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Expiring This Month" />
+                                          <Label fx:id="memExpiringMonth" style="-fx-text-fill: #D9822B;" styleClass="stat-number" text="0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Expired Plans" />
+                                          <Label fx:id="memExpiredPlans" style="-fx-text-fill: #D13438;" styleClass="stat-number" text="0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Renewals Today" />
+                                          <Label fx:id="memRenewalsToday" style="-fx-text-fill: #007BFF;" styleClass="stat-number" text="18" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              
+                              <VBox spacing="15.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox spacing="15.0">
+                                       <children>
+                                          <TextField fx:id="subSearchField" prefWidth="250.0" promptText="🔍 Search by Member ID or Name..." styleClass="search-field" />
+                                          <ComboBox fx:id="subPlanFilterCombo" prefHeight="46.0" prefWidth="162.0" promptText="Plan: All" styleClass="btn-secondary" />
+                                          <ComboBox fx:id="subStatusFilterCombo" prefHeight="46.0" prefWidth="174.0" promptText="Status: All" styleClass="btn-secondary" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button onAction="#openRenewPopup" styleClass="btn-primary" text="+ Renew Member" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="subscriptionTable" VBox.vgrow="ALWAYS">
+   <columns>
+      <TableColumn fx:id="colSubMemberId" prefWidth="220.0" text="MEMBER INFO" />
+      <TableColumn fx:id="colSubPlan" prefWidth="150.0" text="PLAN DURATION" />
+      <TableColumn fx:id="colSubStart" prefWidth="140.0" text="JOIN DATE" />
+      <TableColumn fx:id="colSubExpiry" prefWidth="140.0" text="EXPIRY DATE" />
+      <TableColumn fx:id="colSubStatus" prefWidth="130.0" text="STATUS" />
+                                          <TableColumn fx:id="colSubAddress" prefWidth="220.0" text="ADDRESS" />
+      
+      <!-- ADD THIS NEW COLUMN -->
+      <TableColumn fx:id="colSubAction" prefWidth="150.0" text="ACTION" />
+   </columns>
+</TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                                    <!-- TAB 9: BILLING & PAYMENTS -->
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="💳   Billing" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Billing &amp; Transactions" />
+                                          <Label styleClass="page-subtitle" text="Local Ledger: Revenue tracking, receipt auditing, and payment reconciliation" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+
+                              <GridPane hgap="20.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints percentWidth="25.0" />
+                                    <ColumnConstraints percentWidth="25.0" />
+                                    <ColumnConstraints percentWidth="25.0" />
+                                    <ColumnConstraints percentWidth="25.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                 </rowConstraints>
+                                 <children>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="0">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Total Revenue" />
+                                          <Label fx:id="dashTotalRevenue" styleClass="stat-number" text="₹ 0.00" />
+                                          <Label style="-fx-text-fill: #10B981; -fx-font-size: 12px;" text="All recorded collections" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="1">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Cash Ledgers" />
+                                          <Label fx:id="dashCashCollections" styleClass="stat-number" text="₹ 0.00" />
+                                          <Label style="-fx-text-fill: #6C757D; -fx-font-size: 12px;" text="Physical cash receipts" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="2">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Digital / UPI" />
+                                          <Label fx:id="dashDigitalCollections" styleClass="stat-number" text="₹ 0.00" />
+                                          <Label style="-fx-text-fill: #007BFF; -fx-font-size: 12px;" text="UPI &amp; Card settlements" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="3">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Total Invoices" />
+                                          <Label fx:id="dashTotalTransactions" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #FF7A00; -fx-font-size: 12px;" text="Issued receipt records" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+
+                              <VBox spacing="15.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                       <children>
+                                          <TextField fx:id="billingSearchField" prefWidth="320.0" promptText="🔍 Search Receipt, Member ID, or Name..." styleClass="search-field" />
+                                          <ComboBox fx:id="billingModeFilterCombo" prefHeight="46.0" prefWidth="180.0" promptText="Payment Mode: All" styleClass="btn-secondary" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button onAction="#handleExportBillingCSV" prefHeight="46.0" styleClass="btn-secondary" text="📤 Export Receipts CSV" />
+                                          <Button onAction="#openRenewPopup" prefHeight="46.0" styleClass="btn-primary" text="+ Record Payment" />
+                                       </children>
+                                    </HBox>
+
+                                    <TableView fx:id="paymentsTable" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="colPayReceiptId" prefWidth="120.0" text="RECEIPT #" />
+                                          <TableColumn fx:id="colPayMemberId" prefWidth="140.0" text="MEMBER ID" />
+                                          <TableColumn fx:id="colPayMemberName" prefWidth="200.0" text="MEMBER NAME" />
+                                          <TableColumn fx:id="colPayPlan" prefWidth="150.0" text="PLAN DURATION" />
+                                          <TableColumn fx:id="colPayMode" prefWidth="130.0" text="PAYMENT MODE" />
+                                          <TableColumn fx:id="colPayAmount" prefWidth="140.0" text="AMOUNT" />
+                                          <TableColumn fx:id="colPayDate" prefWidth="140.0" text="DATE" />
+                                          <TableColumn fx:id="colPayStatus" prefWidth="110.0" text="STATUS" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+
+                  <!-- TAB 10: WHATSAPP HUB & ALERTS -->
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="💬  WhatsApp" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="WhatsApp Automation &amp; Reminders" />
+                                          <Label styleClass="page-subtitle" text="Cloud &amp; Direct Messaging: Send upcoming expiry alerts and renewal notifications" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+
+                              <GridPane hgap="20.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints percentWidth="33.3" />
+                                    <ColumnConstraints percentWidth="33.3" />
+                                    <ColumnConstraints percentWidth="33.4" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                 </rowConstraints>
+                                 <children>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="0">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Expiring Soon (&lt; 14 Days)" />
+                                          <Label fx:id="waExpiringSoonCount" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #D9822B; -fx-font-size: 12px;" text="Pending renewal notice" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="1">
+                                       <children>
+                                          <Label styleClass="stat-label" text="WhatsApp Gateway" />
+                                          <Label fx:id="waGatewayStatus" styleClass="stat-number" style="-fx-text-fill: #10B981; -fx-font-size: 20px;" text="🟢 Online / Ready" />
+                                          <Label style="-fx-text-fill: #6C757D; -fx-font-size: 12px;" text="Cloud API + Web fallback" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" styleClass="stat-card" GridPane.columnIndex="2">
+                                       <children>
+                                          <Label styleClass="stat-label" text="Dispatched Reminders" />
+                                          <Label fx:id="waSentTodayCount" styleClass="stat-number" text="0" />
+                                          <Label style="-fx-text-fill: #007BFF; -fx-font-size: 12px;" text="Sent reminder count" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+
+                              <VBox spacing="15.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Upcoming Expiring Members Roster" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button onAction="#handleRefreshWhatsAppHub" prefHeight="40.0" styleClass="btn-secondary" text="🔄 Refresh Scan" />
+                                          <Button onAction="#handleSendAllWhatsAppReminders" prefHeight="40.0" style="-fx-background-color: #25D366; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;" text="🚀 Send Reminders to All" />
+                                       </children>
+                                    </HBox>
+
+                                    <TableView fx:id="whatsAppTable" prefHeight="260.0" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="colWaMemberId" prefWidth="130.0" text="MEMBER ID" />
+                                          <TableColumn fx:id="colWaName" prefWidth="200.0" text="MEMBER NAME" />
+                                          <TableColumn fx:id="colWaPhone" prefWidth="150.0" text="PHONE NUMBER" />
+                                          <TableColumn fx:id="colWaExpiry" prefWidth="130.0" text="EXPIRY DATE" />
+                                          <TableColumn fx:id="colWaDays" prefWidth="140.0" text="DAYS REMAINING" />
+                                          <TableColumn fx:id="colWaStatus" prefWidth="130.0" text="STATUS" />
+                                          <TableColumn fx:id="colWaAction" prefWidth="150.0" text="ACTION" />
+                                       </columns>
+                                    </TableView>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-padding: 10 0 0 0; -fx-border-color: #E2E8F0; -fx-border-width: 1 0 0 0;">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold; -fx-font-size: 13px;" text="Direct Message:" />
+                                          <TextField fx:id="waDirectPhoneField" prefWidth="180.0" promptText="Phone (e.g. 9876512345)" styleClass="form-input" />
+                                          <TextField fx:id="waDirectMsgField" promptText="Enter custom message or member alert..." styleClass="form-input" HBox.hgrow="ALWAYS" />
+                                          <Button onAction="#handleSendDirectWhatsApp" prefHeight="38.0" style="-fx-background-color: #25D366; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;" text="💬 Open WhatsApp" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+
+                  <!-- TAB 11: FITNESS TOOLS & BMI CALCULATOR -->
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="⚡  Fitness Tools" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Fitness &amp; Health Calculator" />
+                                          <Label styleClass="page-subtitle" text="Instant client body composition analysis, BMI score, and dietary calorie estimation" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+
+                              <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <!-- Left Card: Metrics Input -->
+                                    <VBox prefWidth="420.0" spacing="15.0" styleClass="card">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Client Biometrics" />
+                                          <Label style="-fx-text-fill: #6C757D; -fx-font-size: 12px;" text="Enter member measurements for instant health and caloric profiling." />
+
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label styleClass="form-label" text="Height (cm)" />
+                                                <TextField fx:id="calcHeightField" promptText="e.g. 175" styleClass="form-input" text="175" />
+                                             </children>
+                                          </VBox>
+
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label styleClass="form-label" text="Weight (kg)" />
+                                                <TextField fx:id="calcWeightField" promptText="e.g. 72" styleClass="form-input" text="72" />
+                                             </children>
+                                          </VBox>
+
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label styleClass="form-label" text="Age (years)" />
+                                                <TextField fx:id="calcAgeField" promptText="e.g. 26" styleClass="form-input" text="26" />
+                                             </children>
+                                          </VBox>
+
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label styleClass="form-label" text="Biological Gender" />
+                                                <ComboBox fx:id="calcGenderCombo" maxWidth="Infinity" styleClass="btn-secondary" />
+                                             </children>
+                                          </VBox>
+
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label styleClass="form-label" text="Workout Activity Level" />
+                                                <ComboBox fx:id="calcActivityCombo" maxWidth="Infinity" styleClass="btn-secondary" />
+                                             </children>
+                                          </VBox>
+
+                                          <Region VBox.vgrow="ALWAYS" />
+
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Button onAction="#handleCalculateFitness" prefHeight="44.0" styleClass="btn-primary" text="⚡ Calculate Metrics" HBox.hgrow="ALWAYS" />
+                                                <Button onAction="#handleResetFitness" prefHeight="44.0" styleClass="btn-secondary" text="Reset" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+
+                                    <!-- Right Card: Assessment Results -->
+                                    <VBox spacing="20.0" styleClass="card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Assessment &amp; Dietary Summary" />
+
+                                          <HBox alignment="CENTER_LEFT" spacing="25.0" style="-fx-background-color: #F8F9FA; -fx-padding: 20px; -fx-background-radius: 10px;">
+                                             <children>
+                                                <VBox alignment="CENTER" spacing="5.0">
+                                                   <children>
+                                                      <Label style="-fx-font-size: 12px; -fx-text-fill: #6C757D; -fx-font-weight: bold;" text="BODY MASS INDEX" />
+                                                      <Label fx:id="calcBmiScoreLabel" style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: #FF7A00;" text="23.5" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_LEFT" spacing="8.0" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label fx:id="calcBmiCategoryLabel" style="-fx-background-color: #064E3B; -fx-text-fill: #34D399; -fx-font-weight: bold; -fx-padding: 5 14; -fx-background-radius: 20px;" text="Normal / Healthy Weight" />
+                                                      <Label fx:id="calcIdealWeightLabel" style="-fx-font-size: 13px; -fx-text-fill: #475569;" text="Healthy weight target for height: 56.7 kg - 76.3 kg" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+
+                                          <GridPane hgap="15.0" vgap="15.0" VBox.vgrow="ALWAYS">
+                                             <columnConstraints>
+                                                <ColumnConstraints percentWidth="50.0" />
+                                                <ColumnConstraints percentWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                             </rowConstraints>
+                                             <children>
+                                                <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                   <children>
+                                                      <Label styleClass="stat-label" text="Basal Metabolic Rate (BMR)" />
+                                                      <Label fx:id="calcBmrLabel" styleClass="stat-number" text="1,710 kcal/day" />
+                                                      <Label style="-fx-text-fill: #6C757D; -fx-font-size: 12px;" text="Resting energy expenditure" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                   <children>
+                                                      <Label styleClass="stat-label" text="Daily Maintenance Calories" />
+                                                      <Label fx:id="calcCaloriesLabel" styleClass="stat-number" text="2,350 kcal/day" />
+                                                      <Label style="-fx-text-fill: #FF7A00; -fx-font-size: 12px;" text="Caloric intake to maintain weight" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label styleClass="stat-label" text="Daily Hydration Goal" />
+                                                      <Label fx:id="calcWaterLabel" styleClass="stat-number" text="2.5 Liters / day" />
+                                                      <Label style="-fx-text-fill: #007BFF; -fx-font-size: 12px;" text="Recommended water consumption" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label styleClass="stat-label" text="Muscle Building Target" />
+                                                      <Label styleClass="stat-number" text="2,700 kcal/day" />
+                                                      <Label style="-fx-text-fill: #10B981; -fx-font-size: 12px;" text="+350 kcal surplus with 1.6g protein/kg" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="📁   Reports" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Reports &amp; Analytics" />
+                                          <Label styleClass="page-subtitle" text="Generate local reports for attendance, member growth, and subscription status" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Monthly Attendance Trends" />
+                                          <BarChart fx:id="attendanceBarChart">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                          <Button mnemonicParsing="false" onAction="#handleGenerateReport" text="Generate AI Insights" />
+                                          <TextArea fx:id="insightsTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefWidth="350.0" spacing="20.0">
+                                       <children>
+                                          <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Plan Distribution" />
+                                                <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <PieChart fx:id="planPieChart" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="🔧   Settings" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="System Settings &amp; Preferences" />
+                                          <Label styleClass="page-subtitle" text="Configure facility profile, security authentication, system licenses, and data backups" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <!-- Left Navigation Buttons -->
+                                    <VBox minWidth="250.0" prefWidth="250.0" maxWidth="250.0" spacing="10.0" styleClass="card">
+                                       <children>
+                                          <Button fx:id="btnSettingsGym" maxWidth="Infinity" onAction="#showSettingsGym" style="-fx-background-color: #FFF8E6; -fx-text-fill: #FF7A00; -fx-font-weight: bold; -fx-alignment: BASELINE_LEFT;" text="🏢   Gym Profile" />
+                                          <Button fx:id="btnSettingsSecurity" maxWidth="Infinity" onAction="#showSettingsSecurity" style="-fx-alignment: BASELINE_LEFT; -fx-border-color: transparent;" styleClass="btn-secondary" text="🔒   Security &amp; Passwords" />
+                                          <Button fx:id="btnSettingsLicense" maxWidth="Infinity" onAction="#showSettingsLicense" style="-fx-alignment: BASELINE_LEFT; -fx-border-color: transparent;" styleClass="btn-secondary" text="📜   License &amp; System" />
+                                          <Button fx:id="btnSettingsData" maxWidth="Infinity" onAction="#showSettingsData" style="-fx-alignment: BASELINE_LEFT; -fx-border-color: transparent;" styleClass="btn-secondary" text="💾   Data Backup &amp; CSV" />
+                                       </children>
+                                    </VBox>
+                                    
+                                    <!-- Right StackPane for Views -->
+                                    <StackPane HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <!-- PANEL 1: GYM PROFILE -->
+                                          <VBox fx:id="paneSettingsGym" spacing="20.0" styleClass="card">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT">
+                                                   <children>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Facility Profile &amp; Branding" />
+                                                            <Label styleClass="setting-sentence" text="Configure the official gym name, public contact information, and working schedule." />
+                                                         </children>
+                                                      </VBox>
+                                                      <Region HBox.hgrow="ALWAYS" />
+                                                      <Button minWidth="-Infinity" onAction="#handleSaveGymProfile" styleClass="btn-primary" text="💾 Save Configurations" />
+                                                   </children>
+                                                </HBox>
+                                                
+                                                <GridPane hgap="20.0" vgap="16.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints percentWidth="50.0" />
+                                                      <ColumnConstraints percentWidth="50.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints />
+                                                      <RowConstraints />
+                                                      <RowConstraints />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Facility Name" />
+                                                            <TextField fx:id="cfgGymName" styleClass="form-input" text="AIM Fitness Park" />
+                                                            <Label styleClass="setting-sentence" text="Commercial trade name displayed across printed receipts, PDF analytics, and application headers." />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Contact Hotline" />
+                                                            <TextField fx:id="cfgGymPhone" styleClass="form-input" text="+91 98765 12345" />
+                                                            <Label styleClass="setting-sentence" text="Primary phone number used for automated WhatsApp renewal alerts and client inquiries." />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Physical Address" />
+                                                            <TextField fx:id="cfgGymAddress" styleClass="form-input" text="Main Fitness Boulevard, City Center" />
+                                                            <Label styleClass="setting-sentence" text="Physical gym street address printed on official invoices, membership agreements, and tax receipts." />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Operating Hours" />
+                                                            <TextField fx:id="cfgGymHours" styleClass="form-input" text="05:00 AM - 10:00 PM (Mon-Sat)" />
+                                                            <Label styleClass="setting-sentence" text="Daily gym operating shifts defining eligible check-in windows for active members." />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="System Currency" />
+                                                            <TextField fx:id="cfgGymCurrency" styleClass="form-input" text="₹ INR" />
+                                                            <Label styleClass="setting-sentence" text="Default monetary denomination used for fees, renewal invoices, and cash register ledgers." />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </GridPane>
+                                                
+                                                <VBox spacing="10.0" style="-fx-padding: 10 0 0 0; -fx-border-color: #E2E8F0; -fx-border-width: 1 0 0 0;">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Appearance Theme" />
+                                                      <Label styleClass="setting-sentence" text="Toggle between daytime high-clarity light theme and eye-friendly reception dark mode." />
+                                                      <HBox spacing="15.0">
+                                                         <children>
+                                                            <Button fx:id="lightThemeBtn" onAction="#setLightTheme" style="-fx-border-color: #FF7A00; -fx-background-color: #FFF8E6; -fx-font-weight: bold; -fx-padding: 10px 25px; -fx-text-fill: #FF7A00;" text="● Light Theme" />
+                                                            <Button fx:id="darkThemeBtn" onAction="#setDarkTheme" style="-fx-padding: 10px 25px;" styleClass="btn-secondary" text="○ Dark Theme" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+
+                                          <!-- PANEL 2: SECURITY & PASSWORDS -->
+                                          <VBox fx:id="paneSettingsSecurity" managed="false" spacing="20.0" styleClass="card" visible="false">
+                                             <children>
+                                                <VBox spacing="4.0">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Administrator Authentication &amp; Password" />
+                                                      <Label styleClass="setting-sentence" text="Update your administrative login credentials to ensure authorized system access." />
+                                                   </children>
+                                                </VBox>
+
+                                                <VBox maxWidth="500.0" spacing="15.0">
+                                                   <children>
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Administrator Username" />
+                                                            <TextField fx:id="cfgAdminUser" editable="false" styleClass="form-input" text="admin" />
+                                                            <Label styleClass="setting-sentence" text="Designated system administrator identifier used to sign into AIM Fitness Park." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Current Password" />
+                                                            <PasswordField fx:id="cfgCurrentPass" promptText="Enter your current password..." styleClass="form-input" />
+                                                            <Label styleClass="setting-sentence" text="Enter your current active password to verify authorized administrative identity." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="New Password" />
+                                                            <PasswordField fx:id="cfgNewPass" promptText="Enter new secure password (min 4 chars)..." styleClass="form-input" />
+                                                            <Label styleClass="setting-sentence" text="Choose a secure passphrase containing at least 4 characters." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="5.0">
+                                                         <children>
+                                                            <Label styleClass="form-label" text="Confirm New Password" />
+                                                            <PasswordField fx:id="cfgConfirmPass" promptText="Re-type new password to confirm..." styleClass="form-input" />
+                                                            <Label styleClass="setting-sentence" text="Re-enter your new password to prevent accidental typographical mistakes." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <Button onAction="#handleUpdateAdminPassword" prefHeight="44.0" styleClass="btn-primary" text="🔑 Update Administrator Password" />
+                                                   </children>
+                                                </VBox>
+
+                                                <VBox spacing="6.0" style="-fx-padding: 15px; -fx-background-color: #F8F9FA; -fx-background-radius: 8px;">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #1E293B;" text="Cryptographic Salt &amp; Hashing Security" />
+                                                      <Label styleClass="setting-sentence" text="All administrator passwords are mathematically encrypted on-device using PBKDF2-HMAC-SHA256 with 600,000 computation iterations and individual cryptographic salting." />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+
+                                          <!-- PANEL 3: LICENSE INFO -->
+                                          <VBox fx:id="paneSettingsLicense" managed="false" spacing="20.0" styleClass="card" visible="false">
+                                             <children>
+                                                <VBox spacing="4.0">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Commercial License &amp; System Information" />
+                                                      <Label styleClass="setting-sentence" text="On-premise workstation license specifications, system architecture, and local storage parameters." />
+                                                   </children>
+                                                </VBox>
+
+                                                <GridPane hgap="20.0" vgap="16.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints percentWidth="50.0" />
+                                                      <ColumnConstraints percentWidth="50.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints />
+                                                      <RowConstraints />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                         <children>
+                                                            <Label styleClass="stat-label" text="License Authorization" />
+                                                            <Label fx:id="cfgLicenseStatus" styleClass="stat-number" style="-fx-text-fill: #10B981; -fx-font-size: 18px;" text="LIFETIME COMMERCIAL LICENSE" />
+                                                            <Label styleClass="setting-sentence" text="Issued to AIM Fitness Park for single-facility unlimited workstation deployment." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                         <children>
+                                                            <Label styleClass="stat-label" text="Software Release Version" />
+                                                            <Label fx:id="cfgAppVersion" styleClass="stat-number" text="v1.0.0 Production Enterprise" />
+                                                            <Label styleClass="setting-sentence" text="Embedded offline runtime with standalone JavaFX and high-performance SQLite engine." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label styleClass="stat-label" text="Host Workstation Hardware" />
+                                                            <Label fx:id="cfgWorkstationHost" styleClass="stat-number" style="-fx-font-size: 16px;" text="Workstation Host Terminal" />
+                                                            <Label styleClass="setting-sentence" text="Authorized local terminal operating environment and hardware architecture." />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="6.0" styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label styleClass="stat-label" text="Offline Database File" />
+                                                            <Label fx:id="cfgDbPath" styleClass="stat-number" style="-fx-font-size: 12px; -fx-text-fill: #FF7A00;" text="~/AimFitnessData/aimfitness.db" />
+                                                            <Label styleClass="setting-sentence" text="Physical on-disk storage directory where all member records, payments, and logs reside." />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </GridPane>
+
+                                                <VBox spacing="6.0" style="-fx-padding: 15px; -fx-background-color: #F8F9FA; -fx-background-radius: 8px;">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #1E293B;" text="Zero-Cloud Privacy Guarantee" />
+                                                      <Label styleClass="setting-sentence" text="AIM Fitness Park operates 100% locally on your computer with complete data sovereignty. No customer phone numbers, biometric attendance entries, or revenue ledgers are transmitted to external servers." />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+
+                                          <!-- PANEL 4: DATA BACKUP & CSV -->
+                                          <VBox fx:id="paneSettingsData" managed="false" spacing="20.0" styleClass="card" visible="false">
+                                             <children>
+                                                <VBox spacing="4.0">
+                                                   <children>
+                                                      <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Data Safeguarding &amp; CSV Migration" />
+                                                      <Label styleClass="setting-sentence" text="Export local records for secure off-site archival and import legacy spreadsheet rosters." />
+                                                   </children>
+                                                </VBox>
+
+                                                <GridPane hgap="20.0" vgap="16.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints percentWidth="50.0" />
+                                                      <ColumnConstraints percentWidth="50.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints />
+                                                      <RowConstraints />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <VBox spacing="10.0" styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                         <children>
+                                                            <Label style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Export Members Database (CSV)" />
+                                                            <Label styleClass="setting-sentence" text="Download a comprehensive CSV file containing every registered member, active plan, join date, and phone number for spreadsheet analysis or backup." />
+                                                            <Button onAction="#handleExportCSV" prefHeight="40.0" styleClass="btn-primary" text="📤 Export Members to CSV File" />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="10.0" styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                         <children>
+                                                            <Label style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Export Payment Transactions (CSV)" />
+                                                            <Label styleClass="setting-sentence" text="Export all recorded subscription renewal payments, invoice totals, and payment modes for financial accounting and tax compliance." />
+                                                            <Button onAction="#handleExportBillingCSVFromSettings" prefHeight="40.0" styleClass="btn-secondary" text="💳 Export Transactions CSV" />
+                                                         </children>
+                                                      </VBox>
+
+                                                      <VBox spacing="10.0" styleClass="stat-card" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Batch Import Members from CSV Spreadsheet" />
+                                                            <Label styleClass="setting-sentence" text="Ingest client lists or bulk data exports directly into your local database. Requires columns: ID, Name, Phone, Plan, Start Date, Expiry Date, Amount, Address." />
+                                                            <HBox spacing="15.0">
+                                                               <children>
+                                                                  <Button onAction="#handleImportCSV" prefHeight="40.0" styleClass="btn-secondary" text="📥 Select &amp; Ingest CSV File" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <Tab>
+                     <graphic>
+                        <Label minWidth="170.0" prefWidth="170.0" text="⏏   Logout" wrapText="false"><font><Font name="System Bold" size="16.0" /></font></Label>
+                     </graphic>
+                     <content>
+                        <VBox spacing="25.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label styleClass="page-title" text="Session Termination" />
+                                          <Label styleClass="page-subtitle" text="Safely end your local administrative session and lock database access" />
+                                       </children>
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="date-badge" text="📅 04 July 2026" />
+                                 </children>
+                              </HBox>
+
+                              <VBox alignment="CENTER" spacing="22.0" styleClass="card" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="95.0" prefWidth="95.0" style="-fx-background-color: #FFF8E6; -fx-background-radius: 100px; -fx-border-color: #FF7A00; -fx-border-width: 3px; -fx-border-radius: 100px; -fx-max-width: 95px; -fx-max-height: 95px;">
+                                       <children>
+                                          <Label style="-fx-font-size: 42px;" text="🔒" />
+                                       </children>
+                                    </VBox>
+
+                                    <VBox alignment="CENTER" spacing="8.0">
+                                       <children>
+                                          <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Ready to Depart, Admin?" />
+                                          <Label style="-fx-text-fill: #6C757D; -fx-font-size: 14px; -fx-text-alignment: CENTER;" text="You are about to sign out of the AIM Fitness Park Management System.&#10;Any unsaved form entries or open popup modals will be closed immediately." textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+
+                                    <Region prefHeight="10.0" />
+
+                                    <HBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <Button onAction="#cancelLogout" prefHeight="48.0" prefWidth="210.0" styleClass="btn-secondary" text="← Stay Logged In" />
+                                          <Button onAction="#handleLogout" prefHeight="48.0" prefWidth="210.0" style="-fx-background-color: #D13438; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8px; -fx-cursor: hand; -fx-font-size: 15px;" text="⏏ Yes, Logout Now" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <Label style="-fx-text-fill: #ADB5BD; -fx-font-size: 12px; -fx-padding: 15px 0 0 0;" text="Security Note: You will be redirected to the secure admin credentials screen." />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+      
+      <ImageView fitHeight="226.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true">
+         <image><Image url="@aim.png" /></image>
+      </ImageView>
+
+      <VBox fx:id="modalOverlay" alignment="CENTER" fillWidth="false" style="-fx-background-color: rgba(15, 23, 42, 0.45);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox maxWidth="650.0" prefWidth="650.0" spacing="20.0" styleClass="popup-card">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label styleClass="popup-title" text="Add New Member" />
+                              <Label styleClass="popup-subtitle" text="Create a local profile and assign a subscription plan." />
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button onAction="#closeAddMemberPopup" styleClass="btn-close" text="✕" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="photo-upload-container">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="65.0" prefWidth="65.0" styleClass="photo-placeholder">
+                           <children><Label style="-fx-font-size: 20px; -fx-text-fill: #ADB5BD;" text="📷" /></children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 13px;" text="Member Photo" />
+                              <Label style="-fx-text-fill: #8E9BAE; -fx-font-size: 11px;" text="Upload local file (JPG/PNG). Max 2MB." />
+                           </children>
+                        </VBox>
+                        <Button styleClass="btn-secondary" text="Browse" />
+                     </children>
+                  </HBox>
+                  <GridPane hgap="15.0" vgap="15.0">
+                     <columnConstraints>
+                        <ColumnConstraints percentWidth="50.0" />
+                        <ColumnConstraints percentWidth="50.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints /><RowConstraints /><RowConstraints /><RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <children>
+                              <Label styleClass="form-label" text="Full Name *" />
+                              <TextField fx:id="fullNameField" promptText="e.g., John Doe" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <children>
+                              <Label styleClass="form-label" text="Phone Number *" />
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <TextField editable="false" prefWidth="50.0" style="-fx-alignment: CENTER; -fx-background-color: #F8F9FA;" styleClass="form-input" text="+91" />
+                                    <TextField fx:id="phoneField" promptText="00000 00000" styleClass="form-input" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <children>
+                              <Label styleClass="form-label" text="Email Address" />
+                              <TextField fx:id="emailField" promptText="e.g., john@example.com" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label styleClass="form-label" text="Gender" />
+                              <ComboBox fx:id="genderCombo" maxWidth="Infinity" promptText="Select Gender" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <HBox spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                           <children>
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS"><children><Label styleClass="form-label" text="Age *" /><TextField fx:id="ageField" promptText="Yrs" style="-fx-alignment: CENTER;" styleClass="form-input" /></children></VBox>
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS"><children><Label styleClass="form-label" text="Height" /><TextField fx:id="heightField" promptText="cm" style="-fx-alignment: CENTER;" styleClass="form-input" /></children></VBox>
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS"><children><Label styleClass="form-label" text="Weight" /><TextField fx:id="weightField" promptText="kg" style="-fx-alignment: CENTER;" styleClass="form-input" /></children></VBox>
+                           </children>
+                        </HBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label styleClass="form-label" text="Plan Duration *" />
+                              <ComboBox fx:id="addDurationCombo" maxWidth="Infinity" promptText="Select Plan" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                           <children>
+                              <Label styleClass="form-label" text="Start Date *" />
+                              <DatePicker fx:id="addStartDatePicker" maxWidth="Infinity" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label styleClass="form-label" text="Calculated Expiry Date" />
+                              <HBox alignment="CENTER_LEFT" style="-fx-background-color: #F0FFF4; -fx-border-color: #C6F6D5; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-padding: 8px 12px;">
+                                 <children>
+                                    <Label fx:id="addExpiryLabel" style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #276749;" text="Select Date &amp; Plan" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label style="-fx-text-fill: #2F855A; -fx-font-weight: bold;" text="↻" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <Region prefHeight="10.0" />
+                  <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                     <children>
+                        <Button onAction="#closeAddMemberPopup" prefWidth="100.0" styleClass="btn-secondary" text="Cancel" />
+                        <Button onAction="#saveMemberAction" prefHeight="38.0" prefWidth="142.0" styleClass="btn-primary" text="Save Member" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+
+      <VBox fx:id="renewModalOverlay" alignment="CENTER" fillWidth="false" style="-fx-background-color: rgba(15, 23, 42, 0.45);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox maxWidth="650.0" prefWidth="650.0" spacing="18.0" styleClass="popup-card">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label styleClass="popup-title" text="Renew Membership" />
+                              <Label styleClass="popup-subtitle" text="Extend a member's offline subscription and log local payment." />
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button onAction="#closeRenewPopup" styleClass="btn-close" text="✕" />
+                     </children>
+                  </HBox>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1E293B; -fx-padding: 5 0 0 0;" text="Renewal Details" />
+                  <GridPane hgap="15.0" vgap="15.0">
+                     <columnConstraints>
+                        <ColumnConstraints percentWidth="50.0" />
+                        <ColumnConstraints percentWidth="50.0" />
+                     </columnConstraints>
+                     <rowConstraints><RowConstraints /><RowConstraints /></rowConstraints>
+                     <children>
+                        <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <children>
+                              <Label styleClass="form-label" text="Extend Duration *" />
+                              <ComboBox fx:id="renewDurationCombo" maxWidth="Infinity" promptText="Select Plan" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <children>
+                              <Label styleClass="form-label" text="New Start Date *" />
+                              <DatePicker fx:id="renewStartDatePicker" maxWidth="Infinity" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <children>
+                              <Label styleClass="form-label" text="Calculated Expiry Date" />
+                              <HBox alignment="CENTER_LEFT" style="-fx-background-color: #F0FFF4; -fx-border-color: #C6F6D5; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-padding: 8px 12px;">
+                                 <children>
+                                    <Label fx:id="renewExpiryLabel" style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #276749;" text="Select Date &amp; Plan" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label style="-fx-text-fill: #2F855A; -fx-font-weight: bold;" text="↻" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label styleClass="form-label" text="Gym Member ID *" />
+                              <TextField fx:id="renewMemberIdField" promptText="e.g., AIM-1001" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1E293B; -fx-padding: 5 0 0 0;" text="Payment Logging (Local Ledger)" />
+                  <GridPane hgap="15.0" vgap="10.0">
+                     <columnConstraints><ColumnConstraints percentWidth="50.0" /><ColumnConstraints percentWidth="50.0" /></columnConstraints>
+                     <rowConstraints><RowConstraints /></rowConstraints>
+                     <children>
+                        <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <children>
+                              <Label styleClass="form-label" text="Total Amount" />
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <TextField editable="false" prefWidth="40.0" style="-fx-alignment: CENTER; -fx-background-color: #F8F9FA;" styleClass="form-input" text="₹" />
+                                    <TextField fx:id="renewAmountField" promptText="12,000" styleClass="form-input" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <children>
+                              <Label styleClass="form-label" text="Payment Mode" />
+                              <ComboBox fx:id="renewPaymentModeCombo" maxWidth="Infinity" promptText="Credit / Debit Card" styleClass="form-input" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <Region prefHeight="5.0" />
+                  <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                     <children>
+                        <Button onAction="#closeRenewPopup" prefWidth="100.0" styleClass="btn-secondary" text="Cancel" />
+                        <Button onAction="#processRenewalAction" prefHeight="39.0" prefWidth="170.0" styleClass="btn-primary" text="Process Renewal" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      
+      <VBox fx:id="attendanceModalOverlay" alignment="CENTER" fillWidth="false" style="-fx-background-color: rgba(15, 23, 42, 0.45);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox maxWidth="550.0" prefWidth="550.0" spacing="20.0" styleClass="popup-card">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label styleClass="popup-title" text="Mark Attendance" />
+                              <Label styleClass="popup-subtitle" text="Record a member's facility entry or exit." />
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button onAction="#closeAttendancePopup" styleClass="btn-close" text="✕" />
+                     </children>
+                  </HBox>
+
+                  <VBox spacing="10.0" style="-fx-padding: 10 0 10 0;">
+                     <children>
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #475569;" text="Quick Manual Entry" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+<TextField fx:id="attendancePopupIdField" prefHeight="40.0" promptText="Scan barcode or type Member ID..." styleClass="form-input" HBox.hgrow="ALWAYS" />                              <Button onAction="#handleCheckIn" prefHeight="40.0" prefWidth="108.0" style="-fx-background-color: #F97316; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;" text="Check-In" />
+                              <Button onAction="#handleCheckOut" prefHeight="40.0" prefWidth="108.0" style="-fx-font-weight: bold;" styleClass="btn-secondary" text="Check-Out" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox fx:id="deleteModalOverlay" alignment="CENTER" fillWidth="false" layoutX="10.0" layoutY="10.0" style="-fx-background-color: rgba(15, 23, 42, 0.45);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox maxWidth="550.0" prefWidth="550.0" spacing="20.0" styleClass="popup-card">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label styleClass="popup-title" text="Delete Member" />
+                              <Label styleClass="popup-subtitle" text="This will permanently erase their profile, attendance, and subscriptions." />
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button onAction="#closeDeletePopup" styleClass="btn-close" text="✕" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="deleteModalMemberName" text="Label">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <VBox spacing="10.0" style="-fx-padding: 10 0 10 0;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Button onAction="#confirmDeleteAction" prefHeight="40.0" prefWidth="108.0" style="-fx-background-color: #D13438; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;" text="Yes, Delete" />
+                              <Button onAction="#closeDeletePopup" prefHeight="40.0" prefWidth="108.0" style="-fx-font-weight: bold;" styleClass="btn-secondary" text="Cancel" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

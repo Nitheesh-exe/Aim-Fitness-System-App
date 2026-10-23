@@ -1,0 +1,5 @@
+build/
+dist/Aim_0.0.jar
+dist/lib/
+*.class
+.DS_Store

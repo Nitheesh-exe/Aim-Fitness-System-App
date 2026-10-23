@@ -1,0 +1,5 @@
+;!@Install@!UTF-8!
+Title="AIM Fitness Park Setup"
+BeginPrompt="Welcome to AIM Fitness Park! Do you want to install and launch the application?"
+RunProgram="setup_helper.bat"
+;!@InstallEnd@!

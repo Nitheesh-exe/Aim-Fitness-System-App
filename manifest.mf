@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: Login.Launcher
+Class-Path: lib/sqlite-jdbc-3.53.2.1.jar lib/postgresql-42.7.3.jar
+
